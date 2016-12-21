@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'pasture'
+require 'gli'
+
+module GLIWrapper
+  include GLI::App
+  extend self
+
+  program_desc 'Controller for the pasture service.'
+
+  desc 'Start the pasture service'
+  command :start do |c|
+    c.action do |global_options, options, args|
+      Pasture::API.run!
+    end
+  end
+  exit run(ARGV)
+end
