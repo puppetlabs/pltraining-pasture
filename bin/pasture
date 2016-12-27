@@ -11,7 +11,15 @@ module GLIWrapper
 
   desc 'Start the pasture service'
   command :start do |c|
+    c.flag [:c, :config_file, 'config_file'], :desc => 'Specify a configuration file.'
     c.action do |global_options, options, args|
+      config_file = options[:config_file] || '/etc/pasture_config.yaml'
+      begin
+        options = YAML::load_file(config_file).merge(options)
+      rescue Errno::ENOENT
+        puts "No configuration file found at #{config_file}; continuing with defaults"
+      end
+      Pasture::API.set :pasture_options, options
       Pasture::API.run!
     end
   end

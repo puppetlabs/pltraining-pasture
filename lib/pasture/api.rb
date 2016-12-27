@@ -7,8 +7,14 @@ module Pasture
 
     include Cowsay
 
+    helpers do
+      def options
+        settings.pasture_options
+      end
+    end
+
     get '/' do
-      Cowsay.say("test", nil)
+      Cowsay.say(params[:string] || "", params[:character] || options['character'])
     end
 
   end
