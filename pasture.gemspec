@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.email = ['kevin@puppetlabs.com']
   spec.summary = 'Cowsay as a service (CaaS).'
   spec.description = "Pasture provides a RESTful API to serve all your cowsay needs."
-  spec.homepage = 'http://github.com/puppetlabs/pasture'
+  spec.homepage = 'http://github.com/puppetlabs/pltraining-pasture'
   spec.license = 'Apache 2.0'
 
   spec.files = %w( README.md LICENSE )
