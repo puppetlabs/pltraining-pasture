@@ -20,6 +20,9 @@ module GLIWrapper
         puts "No configuration file found at #{config_file}; continuing with defaults"
       end
       Pasture::API.set :pasture_options, options
+      if options[:sinatra_settings]
+        Pasture::API.set options[:sinatra_settings]
+      end
       Pasture::API.run!
     end
   end
