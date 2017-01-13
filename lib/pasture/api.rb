@@ -13,8 +13,9 @@ module Pasture
       end
     end
 
-    get '/' do
-      Cowsay.say(params[:string] || "", params[:character] || options['character'])
+    get '/api/v1/cowsay' do
+      Cowsay.say(params[:message] || options[:default_message] || '',
+                 params[:character] || options[:default_character])
     end
 
   end
