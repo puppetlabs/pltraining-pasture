@@ -22,6 +22,9 @@ module GLIWrapper
       Pasture::API.set :pasture_options, options
       if options[:sinatra_settings]
         Pasture::API.set options[:sinatra_settings]
+        if Pasture::API.server == 'thin' || Pasture::API.server == 'mongrel'
+          require Pasture::API.server
+        end
       end
       Pasture::API.run!
     end
