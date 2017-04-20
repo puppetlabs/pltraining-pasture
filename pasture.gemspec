@@ -19,4 +19,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'gli', '~> 2.12'
   spec.add_dependency 'sinatra', '~> 1.4'
   spec.add_dependency 'mono_logger', '~> 1.1'
+  spec.add_dependency 'pg', '~> 0.19'
+  spec.add_dependency 'sequel', '~>4.42'
 end
